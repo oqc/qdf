@@ -40,7 +40,7 @@ Abjad value of a letter between parenthesis.
 ## Expectations
 
 We expect the raw binary size of the Quran with this format will be
-around 2 megabyte.
+around 250 kilobyte.
 
 
 
