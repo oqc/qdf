@@ -12,23 +12,23 @@ or [open formats](http://en.wikipedia.org/wiki/Open_format).
 
 The formats are:
 
-* [Quran Text Format](http://github.com/oqc/qdf/qtf.md) (QTF) --
+* [Quran Text Format](http://github.com/oqc/qdf/blob/master/qtf.md) (QTF) --
   Simple one-line-per-verse format, mostly compatible with the format
   used by [zekr.org](http://zekr.org).
-* [Quran LaTeX Format](http://github.com/oqc/qdf/qlf.md) (QLF) --
+* [Quran LaTeX Format](http://github.com/oqc/qdf/blob/master/qlf.md) (QLF) --
   Subset of the [LaTeX](http://en.wikipedia.org/wiki/LaTeX) document
   markup language, specifically tailored for rich Quranic content (e.g.:
   footnotes, Arabic text, links, headings).
-* [Quran Metadata Format](http://github.com/oqc/qdf/qmf.md) (QMF) --
+* [Quran Metadata Format](http://github.com/oqc/blob/master/qdf/qmf.md) (QMF) --
   Uses the [N3](http://en.wikipedia.org/wiki/Notation3) format with a
   subset of the [Dublin Core](http://en.wikipedia.org/wiki/Dublin_Core)
   [Metadata Element Set](http://dublincore.org/documents/dces)
   vocabulary.
-* [Quran Paragraphing Format](http://github.com/oqc/qdf/qpf.md) (QPF) --
+* [Quran Paragraphing Format](http://github.com/oqc/qdf/blob/master/qpf.md) (QPF) --
   Simple one-line-per-verse format for adding paragraphing to Quranic
   texts, especially useful with originals and translations in the QTF
   format (as they lack paragraphs).
-* [Quran Binary Format](http://github.com/oqc/qdf/qbf.md) (QBF) --
+* [Quran Binary Format](http://github.com/oqc/qdf/blob/master/qbf.md) (QBF) --
   Fun attempt to create the smallest possbile file containing the
   complete original Quran in the 28-letter Arabic alphabet in which it
   was originally revealed (using 5bit code points).
