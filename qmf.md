@@ -1,13 +1,15 @@
 # The Quran Metadata Format (QMF)
 
-This format is to annotate Quran texts with some metadata. If follows the
-[N3](http://en.wikipedia.org/wiki/Notation3) format (a plaintext format)
+This format stores metadata for the other Quran Data Formats. It uses the
+[N3](http://en.wikipedia.org/wiki/Notation3) schema (a plaintext format)
 and the [Dublin Core](http://en.wikipedia.org/wiki/Dublin_Core)
 [Metadata Element Set](http://dublincore.org/documents/dces) vocabulary.
 Both of these technologies are [w3c](http://w3c.org) standards.
 
-The extension for a Quran Metadata Format file is `.qmf`, and it is
-usually shipped alongside the file(s) that it describes.
+The extension for Quran Metadata Format files is `.qmf`, and it should
+be placed alongside the file(s)/directory provides metadata for --
+in practice this means it should have the same name (except for the
+extension).
 
 
 ## Example
@@ -66,12 +68,15 @@ A short description of the text.
 
 #### type
 
-One of `"original"`, `"translation"` or `"commentary"`. 
+The type of data it describes.
+One of `"original"`, `"translation"`, `"commentary"` or `"paragraphing"`. 
 
 #### format
 
-One of `"qtf"` (for the [Quran Text Format](https://github.com/oqc/qdf/qtf.md))
-or `"qlf"` (for the [Quran LaTeX Format](https://github.com/oqc/odf/qlf.md)).
+The format of the data it describes.
+One of `"qtf"` (for the [Quran Text Format](https://github.com/oqc/qdf/qtf.md)),
+`"qlf"` (for the [Quran LaTeX Format](https://github.com/oqc/odf/qlf.md)) or
+`"qpf"` (for the [Quran Paragraphing Format](https://github.com/oqc/odf/qpf.md)).
 
 #### identifier
 
