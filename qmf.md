@@ -35,7 +35,8 @@ properties their values on the unnamed resource.
 ## Overview of keywords
 
 We use the [DC Metadata Element Set](http://dublincore.org/documents/dces)
-vocabulary, narrowing it down to our purpose.  All term may be omitted or
+vocabulary, narrowing it down to our purpose.
+Except for the title (which must occure exactly once), all terms may be omitted or
 repeated if that seems appropriate.
 
 The terms below are understood as part of the Quran Metadata Format:
