@@ -19,7 +19,7 @@ The formats are:
   Subset of the [LaTeX](http://en.wikipedia.org/wiki/LaTeX) document
   markup language, specifically tailored for rich Quranic content (e.g.:
   footnotes, Arabic text, links, headings).
-* [Quran Metadata Format](http://github.com/oqc/blob/master/qdf/qmf.md) (QMF) --
+* [Quran Metadata Format](http://github.com/oqc/qdf/blob/master/qdf/qmf.md) (QMF) --
   Uses the [N3](http://en.wikipedia.org/wiki/Notation3) format with a
   subset of the [Dublin Core](http://en.wikipedia.org/wiki/Dublin_Core)
   [Metadata Element Set](http://dublincore.org/documents/dces)
