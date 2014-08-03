@@ -1,109 +1,50 @@
-# The Quran Metadata Format (QMF)
+# The Quran Text Format (QTF)
 
-This format stores metadata for the other Quran Data Formats. It uses the
-[N3](http://en.wikipedia.org/wiki/Notation3) schema (a plaintext format)
-and the [Dublin Core](http://en.wikipedia.org/wiki/Dublin_Core)
-[Metadata Element Set](http://dublincore.org/documents/dces) vocabulary.
-Both of these technologies are [w3c](http://w3c.org) standards.
+File format for Quran texts that uses plain text internally: one line per verse,
+delimited by a `\n` (newline), contains no unnumbered bismallahs, and is UTF-8 encoded.
+Verse numbers are implicit in this format, they can be derived from the line number count.
+All chapters simply follow one after another in a single file.
 
-The extension for Quran Metadata Format files is `.qmf`, and it should
-be placed alongside the file(s)/directory provides metadata for --
-in practice this means it should have the same name (except for the
-extension).
+The extension for this format is `.qtf`.
 
+It is based upon the "Text" format that [tanzil.net](http://tanzil.net) and
+[zekr.org](http://zekr.org) use; and extends on that basis by having a strict
+definition (this document) and allowing metadata to be embedded.
 
-## Example
-
-A typical `qmf` file looks like this:
-
-    @prefix : <http://purl.org/dc/elements/1.1/>.
-    <>
-    :title      "De Edele Koran";
-    :creator    "Sofian S. Siregar";
-    :publisher  "ICCN";
-    :date       "2000";
-    :language   "nl";
-    :format     "qtf";
-    :type       "translation";
-    :identifier "URN:ISBN:90-73355-08-7".
-
-The first line includes the Dublin Core Elements vocabulary.
-The second line starts an unnamed resource, the conscutive lines describe
-properties their values on the unnamed resource.
+For a more sophisticated format see the [Quran Latex Format](https://github.com/oqc/qdf/blob/master/qlf.md).
+The QLF has much more features, including: markup, footnotes, in-verse line breaks and headings.
 
 
-## Overview of keywords
+## Metadata
 
-We use the [DC Metadata Element Set](http://dublincore.org/documents/dces)
-vocabulary, narrowing it down to our purpose.
-Except for the title (which must occure exactly once), all terms may be omitted or
-repeated if that seems appropriate.
+QTF allows metadata to be embedded, by appending it to the end of the file.
+The reason for appending it are twofold: the bismallah thereby is still on the
+first line of the file, and the line numbers can still be used to derive the
+chapter and verse numbers from.
 
-The terms below are understood as part of the Quran Metadata Format:
+The metadata should adhere to the [Quran Metadata Format](https://github.com/oqc/qmf)
+and is separated from the Quran text by a line that starts with three dashes.
+basename, in the same folder.
 
-#### title
+For example:
 
-The title of the text it describes.
-
-#### creator
-
-An person (or organization) that created the text: the author.  Please
-repeat this in case there are more then one primary author.
-
-#### publisher
-
-The organization that holds the publishing rights.
-
-#### contributor
-
-A person (or organization) who made minor contributions to the text.
-
-#### date
-
-When the text was first published.  Valid are: YYYY, YYYY-MM and
-YYYY-MM-DD.
-
-#### description
-
-A short description of the text.
-
-#### type
-
-The type of data it describes.
-One of `"original"`, `"translation"`, `"commentary"` or `"paragraphing"`. 
-
-#### format
-
-The format of the data it describes.
-One of `"qtf"` (for the [Quran Text Format](https://github.com/oqc/qdf/qtf.md)),
-`"qlf"` (for the [Quran LaTeX Format](https://github.com/oqc/odf/qlf.md)) or
-`"qpf"` (for the [Quran Paragraphing Format](https://github.com/oqc/odf/qpf.md)).
-
-#### identifier
-
-Here the ISBN can be supplied as a URN, for example
-"URN:ISBN:90-73355-08-7", an identifier may also be made up as long as
-it is unique.
-
-#### language
-
-Contains a "language identification tag" as specified by the Internet
-Engineering Task Force (IETF) in document
-[BCP 47](http://tools.ietf.org/html/bcp47). Unless it clearly leads to
-ambiguity the shorter '2 digit' codes are preferred.
-
-#### rights
-
-Used to specify the copyright notice or to state it resides in the public
-domain.  Possible content licenses (like Creative Commons) can also be
-provided here.
-
-#### source
-
-Link to the origin of this text, like the site it was downloaded from.
-May be repeated in case more then one origin is deemed noteworthy.
+    [...]
+    Say, "I seek refuge in the Lord of the people,
+    The King of the people,
+    The god of people,
+    From the evil of the sneaky whisperer,
+    Who whispers into the chests of the people,
+    From among the Jinn and people."
+    ---
+    title: "Quran: A Reformist Translation"
+    type: "translation"
+    creator: ["Edip Yüksel", "Layth Saleh al-Shaiban", "Martha Schulte-Nafeh"]
+    publisher: "Rainbow Press"
+    language: "en"
 
 
-## VERSIONS
 
-* `0.0.1` -- original specification
+## VERSION
+
+* `0.0.1` -- Initial release.
+* `0.0.2` -- Remove the compression feature, and speficy metadata to be embedded.
