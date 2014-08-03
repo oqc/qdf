@@ -1,12 +1,12 @@
 # The Quranic Data Formats (QDF)
 
-This [repository](https://github.com/oqc/qdf) contains the specification
+This [repository](https://github.com/oqc/qdf) contains specifications
 of file formats for storing Quranic data.  The secifications are
 collaborated on by the [Open Quran Collective](https://github.com/oqc),
-anyone using the formats is encouraged contribute to any future
-developments.
+anyone using the formats is encouraged contribute to future
+developments of these specifications.
 
-The specifications are not restricted in any way of form so can be
+Using the works in this repository is not restricted in any way of form so they can be
 considered [open standards](http://en.wikipedia.org/wiki/Open_standard),
 or [open formats](http://en.wikipedia.org/wiki/Open_format).
 
@@ -20,7 +20,7 @@ The formats are:
   markup language, specifically tailored for rich Quranic content (e.g.:
   footnotes, Arabic text, links, headings).
 * [Quran Metadata Format](http://github.com/oqc/qdf/blob/master/qmf.md) (QMF) --
-  Uses the [N3](http://en.wikipedia.org/wiki/Notation3) format with a
+  Uses a subset of the [TOML](https://github.com/toml-lang/toml) format with a
   subset of the [Dublin Core](http://en.wikipedia.org/wiki/Dublin_Core)
   [Metadata Element Set](http://dublincore.org/documents/dces)
   vocabulary.
@@ -40,9 +40,10 @@ These standards were introduced to facilitate collaboration on Quran
 study and publication in the age of the internet.
 
 Only the QTF was in use before before it was specified as part of this
-project, and is sometimes refered to as the [zekr.org](http://zekr.org)
-format as it released many Quran textx (originals and translations) that
-mostly conform the QTF specificetion.
+project, and is sometimes refered to as the "Text" format of
+[tanzil.net](http://tanzil.net) and [zekr.org](http://zekr.org).
+Therefor many digital Quran texts (originals and translations) have been published
+that mostly conform to the QTF specification.
 
 
 ## Goals
