@@ -1,50 +1,120 @@
-# The Quran Text Format (QTF)
+# The Quran Metadata Format (QMF)
 
-File format for Quran texts that uses plain text internally: one line per verse,
-delimited by a `\n` (newline), contains no unnumbered bismallahs, and is UTF-8 encoded.
-Verse numbers are implicit in this format, they can be derived from the line number count.
-All chapters simply follow one after another in a single file.
+A metadata format for Quran texts, part of the [Quran Data Formats](https://github.com/oqc/qdf).
+It can either be embedded in another file format (as per that file format's
+specification), or alternatively it can be saved in a standalone file with the `.qmf` extension,
+placed alongside the file/directory provides metadata for --
+in carrying the same filename (except for the extension).
 
-The extension for this format is `.qtf`.
+The format of the metadata is based on two stadards, that are themselves based on
+other standards (mainly ISO-, IETF standards and RFCs).  As the data format
+a subset of [TOML](https://github.com/toml-lang/toml) is used, which is quite similar to, yet
+more advance and well-specified, then the (in)famous `INI` format.
+Essentially TOML is allows key-value mapping; to provide semantics to the keys
+we use a subset of the [Dublin Core](http://en.wikipedia.org/wiki/dublin_core)
+[metadata element set](http://dublincore.org/documents/dces) vocabulary.
 
-It is based upon the "Text" format that [tanzil.net](http://tanzil.net) and
-[zekr.org](http://zekr.org) use; and extends on that basis by having a strict
-definition (this document) and allowing metadata to be embedded.
+QMF is always UTF-8 encoded.
 
-For a more sophisticated format see the [Quran Latex Format](https://github.com/oqc/qdf/blob/master/qlf.md).
-The QLF has much more features, including: markup, footnotes, in-verse line breaks and headings.
-
-
-## Metadata
-
-QTF allows metadata to be embedded, by appending it to the end of the file.
-The reason for appending it are twofold: the bismallah thereby is still on the
-first line of the file, and the line numbers can still be used to derive the
-chapter and verse numbers from.
-
-The metadata should adhere to the [Quran Metadata Format](https://github.com/oqc/qmf)
-and is separated from the Quran text by a line that starts with three dashes.
-basename, in the same folder.
-
-For example:
-
-    [...]
-    Say, "I seek refuge in the Lord of the people,
-    The King of the people,
-    The god of people,
-    From the evil of the sneaky whisperer,
-    Who whispers into the chests of the people,
-    From among the Jinn and people."
-    ---
-    title: "Quran: A Reformist Translation"
-    type: "translation"
-    creator: ["Edip Yüksel", "Layth Saleh al-Shaiban", "Martha Schulte-Nafeh"]
-    publisher: "Rainbow Press"
-    language: "en"
+This document defines the subset that are used.
 
 
 
-## VERSION
+## Example
 
-* `0.0.1` -- Initial release.
-* `0.0.2` -- Remove the compression feature, and speficy metadata to be embedded.
+This is what a `qmf` stanza looks like:
+
+    title = "De Edele Koran"
+    creator = "Sofian S. Siregar"
+    publisher = "ICCN"
+    date = "2000"
+    language = "nl"
+    type = "translation"
+    identifier = "urn:isbn:90-73355-08-7"
+    [en]
+    title = "The Noble Quran"
+
+As you can see it is basically a key-value mapping.
+
+The TOML consists of three parts.  First a language agnostic part, followed by
+an English (`[en]`) section (in TOML jargon sections are called "tables").
+
+In the case above `title` is the only property that is "localized", but other
+contender for localization is the name (or names) of the creator(s) of the text.
+
+The keys in the file are all from the Dublin Core vocabulary and their exact use is
+detailed in this document.
+
+
+## Language codes
+
+Language indentification tags are used as value of the `language` key, and as value of the section
+headers.  The possible values are specified in [BCP74/RFC5646](http://tools.ietf.org/html/rfc5646).
+We prefer the shortest language code that does properly covers the text at hand.
+
+
+## Overview of keywords
+
+We use the [dc metadata element set](http://dublincore.org/documents/dces)
+vocabulary, narrowing it down to our purpose.
+All terms may be either omitted, occure once, or contain a list of values.
+
+#### title
+
+The title of the text it describes.  May quite likely be localized.
+
+#### creator
+
+A person, or organization, that created the text: the author.  Please
+use a list in case there is more then one primary author.
+
+May quite likely be localized.
+
+#### publisher
+
+The organization that holds the publishing rights.
+
+#### contributor
+
+A person (or organization) who made minor contributions to the text.
+
+#### date
+
+When the text was first published, formatted as a string.
+Valid are: `"YYYY"`, `"YYYY-MM"` and `"YYYY-MM-DD"`.
+
+#### description
+
+A short description of the text.  May quite likely be localized.
+
+#### type
+
+The type of data it describes.
+One of `"original"`, `"translation"`, `"commentary"` or `"paragraphing"`.
+
+#### identifier
+
+Here the ISBN can be supplied as a URN, for example
+"URN:ISBN:90-73355-08-7", an identifier may also be made up as long as
+it is unique.
+
+#### language
+
+Contains the "language identification tag" of the text.
+
+#### rights
+
+Used to specify the copyright notice or to state it resides in the public
+domain.  Possible content licenses (like Creative Commons) can also be
+provided here.  In case it is not know, the "Unknown" value should be supplied.
+
+#### source
+
+Link to the origin of this text, like the site it was downloaded from.
+May be repeated in case more then one origin is deemed noteworthy.
+
+
+## VERSIONS
+
+* `0.0.1` -- Original specification.
+* `0.0.2` -- Switched from N3 to the TOML format, and allow localization of specific bits of metadata (by using sections).
