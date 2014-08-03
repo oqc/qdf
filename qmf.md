@@ -90,7 +90,8 @@ A short description of the text.  May quite likely be localized.
 #### type
 
 The type of data it describes.
-One of `"original"`, `"translation"`, `"commentary"` or `"paragraphing"`.
+One of `"original"`, `"translation"`, `"transliteration"`, `"commentary"`
+or `"paragraphing"`.
 
 #### identifier
 
@@ -113,8 +114,15 @@ provided here.  In case it is not know, the "Unknown" value should be supplied.
 Link to the origin of this text, like the site it was downloaded from.
 May be repeated in case more then one origin is deemed noteworthy.
 
+#### direction
+
+This is the only key that is *not* part of Dublin Core. It specifies the
+text direction and can be one of `"ltr"` and `"rtl"`.
+
+
 
 ## VERSIONS
 
 * `0.0.1` -- Original specification.
 * `0.0.2` -- Switched from N3 to the TOML format, and allow localization of specific bits of metadata (by using sections).
+* `0.0.3` -- Added the "direction" key and the "transliteration" value for the "type" key.
