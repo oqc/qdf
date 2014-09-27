@@ -10,13 +10,13 @@ The format of the metadata is based on two stadards, that are themselves based o
 other standards (mainly ISO-, IETF standards and RFCs).  As the data format
 a subset of [TOML](https://github.com/toml-lang/toml) is used, which is quite similar to, yet
 more advance and well-specified, then the (in)famous `INI` format.
-Essentially TOML is allows key-value mapping; to provide semantics to the keys
-we use a subset of the [Dublin Core](http://en.wikipedia.org/wiki/dublin_core)
+
+To provide semantics to the property names we use a subset of the
+[Dublin Core](http://en.wikipedia.org/wiki/dublin_core)
 [metadata element set](http://dublincore.org/documents/dces) vocabulary.
 
 QMF is always UTF-8 encoded.
 
-This document defines the subset that are used.
 
 
 
