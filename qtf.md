@@ -18,11 +18,12 @@ The QLF has much more features, including: markup, footnotes, in-verse line brea
 ## Metadata
 
 QTF allows metadata to be embedded, by appending it to the end of the file.
-The reason for appending it are twofold: the bismallah thereby is still on the
-first line of the file, and the line numbers can still be used to derive the
-chapter and verse numbers from.
+The reason for appending it (instead of putting it at the start of the file) are:
 
-The metadata should adhere to the [Quran Metadata Format](https://github.com/oqc/qmf)
+1. the bismallah thereby is still on the first line of the file, and
+2. the line numbers can still be used to derive the chapter and verse numbers from.
+
+The metadata should adhere to the [Quran Metadata Format](https://github.com/oqc/qdf/blob/master/qmf.md)
 and is separated from the Quran text by a line that starts with three dashes.
 basename, in the same folder.
 
@@ -46,5 +47,5 @@ For example:
 
 ## VERSION
 
-* `0.0.1` -- Initial release.
 * `0.0.2` -- Remove the compression feature, and speficy metadata to be embedded.
+* `0.0.1` -- Initial release.
