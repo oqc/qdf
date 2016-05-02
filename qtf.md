@@ -38,11 +38,13 @@ For example:
     Who whispers into the chests of the people,
     From among the Jinn and people."
     ---
-    title: "Quran: A Reformist Translation"
-    type: "translation"
-    creator: ["Edip Yüksel", "Layth Saleh al-Shaiban", "Martha Schulte-Nafeh"]
-    publisher: "Rainbow Press"
-    language: "en"
+    title = "Quran: A Reformist Translation"
+    type = "translation"
+    creator = ["Edip Yüksel", "Layth Saleh al-Shaiban", "Martha Schulte-Nafeh"]
+    publisher = "Rainbow Press"
+    language = "en"
+    date = "2007"
+    identifier = "urn:isbn:978-0979671500"
 
 
 
