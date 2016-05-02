@@ -1,7 +1,8 @@
 # The Quran Text Format (QTF)
 
 File format for Quran texts that uses plain text internally: one line per verse,
-delimited by a `\n` (newline), contains no unnumbered bismallahs, and is UTF-8 encoded.
+delimited by a `\n` or `0x0A` (newline or line feed), contains no unnumbered bismallahs,
+and is UTF-8 encoded.
 Verse numbers are implicit in this format, they can be derived from the line number count.
 All chapters simply follow one after another in a single file.
 
